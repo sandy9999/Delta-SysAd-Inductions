@@ -178,7 +178,7 @@ if(isset($_POST['login']))
 			if(isset($_POST['rememberme']))
 			{
 				$days = 30;
-				$value = ($username);
+				$value = encryptCookie($username);
 				setcookie("remember_me",$value,time()+($days*24*60*60*1000));
 			}
 			else

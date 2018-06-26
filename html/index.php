@@ -21,6 +21,8 @@ if($result)
 {
 	while($row =mysqli_fetch_array($result))
 	{
+		echo "Welcome ".$row['name'];
+		echo "<br>";
 		echo "You have visited ".$row['counter']." times";
 	}
 }
@@ -30,9 +32,8 @@ if($result)
 
 <?php endif ?>
 <?php if(isset($_COOKIE['remember_me'])): ?>
-<p> Welcome <strong><?php echo $_COOKIE['remember_me']; ?></strong></p>
 <?php
-$tempusername = mysqli_real_escape_string($db,$_COOKIE['remember_me']);
+$tempusername = mysqli_real_escape_string($db,decryptCookie($_COOKIE['remember_me']));
 //echo $tempusername;
 mysqli_query($db,"UPDATE users SET counter = counter+1 WHERE username='$tempusername'");
 $sql = "SELECT * FROM users WHERE username='$tempusername'";
@@ -41,7 +42,9 @@ if($result)
 {
         while($row =mysqli_fetch_array($result))
         {
-                echo "You have visited ".$row['counter']." times";
+           	 echo "Welcome ".$row['name'];
+		 echo "<br>";
+		 echo "You have visited ".$row['counter']." times";
         }
 }
 
