@@ -74,7 +74,7 @@ sudo wget -O /home/prof2/Algorithms.txt http://inductions.delta.nitt.edu/dataStr
 # 1b
 
 sudo sed -i 's/\*\*/))/g' /home/prof1/dataStructures.txt
-sudo sed -t 's/\*\*/))/g' /home/prof2/Algorithms.txt
+sudo sed -i 's/\*\*/))/g' /home/prof2/Algorithms.txt
 
 cat /home/prof1/dataStuctures.txt | while read i
 do
