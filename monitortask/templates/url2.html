@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Print last 10 entries in table form
+{% endblock %}
+
+{% block main %}
+<table>
+<tr>
+<th>Memory %</th>
+<th>CPU use %</th>
+<th>Disk space use % </th>
+<th>Uptime since </th>
+<th>No. of active connections </th>
+<th> Current max memory process </th>
+<th> Timestamp </th>
+</tr>
+{% for row in data %}
+<tr>
+{% for d in row %}
+<td>{{ d }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
